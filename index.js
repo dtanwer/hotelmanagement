@@ -6,7 +6,6 @@ const app = express();
 
 const port =5000;
 const URL="mongodb+srv://dtanwer:Deepak123@hotelapp.17xqxuk.mongodb.net/?retryWrites=true&w=majority"
-const client = new MongoClient(URL);
 const dbName = 'test';
 
 app.use((req, res, next) => {
@@ -31,8 +30,6 @@ mongoose.connect(URL, {
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
-const db = client.db(dbName);
-const collection = db.collection('bookings');
 const bookingSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true },
